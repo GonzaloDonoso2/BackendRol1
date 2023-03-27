@@ -8,14 +8,7 @@ class ControladorUsuario extends FuncionesUsuario {
         
         $nuevoParametro = urldecode($parametro[0]);
         
-        if ($metodo === "DELETE") {
-            
-            /*No es correcto borrar 
-            registros de una base de
-            datos en un ambiente 
-            productivo.*/
-            
-        } elseif ($metodo === "GET") {
+        if ($metodo === "GET") {
             
             if ($nuevoParametro === "inicioSesion") {
                 

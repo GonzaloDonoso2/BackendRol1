@@ -10,39 +10,7 @@ class FuncionesPersonaje extends ConectorBaseDatos {
         $consulta = "select * from Personajes where idUsuario = $idUsuario and estado = 'VIGENTE'";
         $respuesta = $this->consultarBaseDatos($consulta);
 
-        foreach ($respuesta as $key => $value) {
-
-            $idPersonaje = $value["id"];
-            $nombrePersonaje = $value["nombre"];
-            $puntuacionAgilidad = $value["agilidad"];
-            $puntuacionDestreza = $value["destreza"];
-            $puntuacionInteligencia = $value["inteligencia"];
-            $puntuacionFuerza = $value["fuerza"];
-            $puntuacionPercepcion = $value["percepcion"];
-            $puntuacionResistencia = $value["resistencia"];
-            $idArmaPrimaria = $value["idArmaPrimaria"];
-            $idArmaSecundaria = $value["idArmaSecundaria"];
-            $idArmadura = $value["idArmadura"];
-
-            $jsonRespuesta[] = array(
-                "id" => $idPersonaje,
-                "nombrePersonaje" => $nombrePersonaje,
-                "puntuacionAgilidad" => $puntuacionAgilidad,
-                "puntuacionDestreza" => $puntuacionDestreza,
-                "puntuacionInteligencia" => $puntuacionInteligencia,
-                "puntuacionFuerza" => $puntuacionFuerza,
-                "puntuacionPercepcion" => $puntuacionPercepcion,
-                "puntuacionResistencia" => $puntuacionResistencia,
-                "idArmaPrimaria" => $idArmaPrimaria,
-                "idArmaSecundaria" => $idArmaSecundaria,
-                "idArmadura" => $idArmadura
-            );
-        }
-
-        $respuestaPersonaje = json_encode($jsonRespuesta);
-        echo $respuestaPersonaje;
-
-        /*if (mysqli_num_rows($respuesta) > 0) {
+        if (mysqli_num_rows($respuesta) > 0) {
 
             foreach ($respuesta as $key => $value) {
 
@@ -79,7 +47,7 @@ class FuncionesPersonaje extends ConectorBaseDatos {
         } else {
 
             echo "Sin Personajes Registrados.";
-        }*/
+        }
     }
 
     function registrarPersonaje($nuevoValor){

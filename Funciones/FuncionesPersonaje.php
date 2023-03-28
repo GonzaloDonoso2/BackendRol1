@@ -25,6 +25,7 @@ class FuncionesPersonaje extends ConectorBaseDatos {
                 $idArmaPrimaria = $value["idArmaPrimaria"];
                 $idArmaSecundaria = $value["idArmaSecundaria"];
                 $idArmadura = $value["idArmadura"];
+                $retratoPersonaje = $value["retrato"];
 
                 $jsonRespuesta[] = array(
                     "id" => $idPersonaje,
@@ -37,7 +38,8 @@ class FuncionesPersonaje extends ConectorBaseDatos {
                     "puntuacionResistencia" => $puntuacionResistencia,
                     "idArmaPrimaria" => $idArmaPrimaria,
                     "idArmaSecundaria" => $idArmaSecundaria,
-                    "idArmadura" => $idArmadura
+                    "idArmadura" => $idArmadura,
+                    "retrato" => $retratoPersonaje
                 );
             }
 
@@ -73,7 +75,7 @@ class FuncionesPersonaje extends ConectorBaseDatos {
         
         $idPersonaje = ($x + 1);
 
-        $consulta = "insert into Personajes (id, nombre, agilidad, destreza, inteligencia, fuerza, percepcion, resistencia, estado, idUsuario, idArmaPrimaria, idArmaSecundaria, idArmadura) values ($idPersonaje, '$nombrePersonaje', $puntuacionAgilidadPersonaje, $puntuacionDestrezaPersonaje, $puntuacionInteligenciaPersonaje, $puntuacionFuerzaPersonaje, $puntuacionPercepcionPersonaje, $puntuacionResistenciaPersonaje, 'VIGENTE', $idUsuario, $idArmaPrimaria, $idArmaSecundaria, $idArmadura)";
+        $consulta = "insert into Personajes (id, nombre, agilidad, destreza, inteligencia, fuerza, percepcion, resistencia, estado, idUsuario, idArmaPrimaria, idArmaSecundaria, idArmadura, retrato) values ($idPersonaje, '$nombrePersonaje', $puntuacionAgilidadPersonaje, $puntuacionDestrezaPersonaje, $puntuacionInteligenciaPersonaje, $puntuacionFuerzaPersonaje, $puntuacionPercepcionPersonaje, $puntuacionResistenciaPersonaje, 'VIGENTE', $idUsuario, $idArmaPrimaria, $idArmaSecundaria, $idArmadura, 'personaje')";
         $this->consultarBaseDatos($consulta);
         echo "El personaje fue registrado de manera exitosa.";
     }
